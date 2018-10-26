@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>WebMUD Proxy</title>
+    </head>
+    <body>
+    <h1>WebMUD Proxy</h1>
+    <form id="connectForm" method="poast">
+        <h2>Connect</h2>
+        <p><label>Hostname: <input type="text" id="hostname" value="toastsoft.net"></label></p>
+        <p><label>Port: <input type="number" id="port" min="23" max="65535" value="1234"></label></p>
+        <p><input type="submit" value="Connect"></p>
+    </form>
+    <div id="main">
+        <h2>Output</h2>
+        <p><input type="button" value="Disconnect" id="disconnect"></p>
+        <div id="output" aria-live="polite" aria-atomit="false"></div>
+        <hr>
+        <form method="post" id="entryForm">
+            <p><label>Command: <input type="text" id="entry" autocomplete="off"></label></p>
+        </form>
+    </div>
+    <script src="/client.js?{{ js_timestamp }}"></script>
+    </body>
+</html>
