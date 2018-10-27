@@ -16,6 +16,7 @@ function write_message(message) {
     p = document.createElement("p")
     p.innerText = message
     output.appendChild(p)
+    window.scrollTo(0,document.body.scrollHeight)
 }
 
 connectForm.onsubmit = (e) => {
