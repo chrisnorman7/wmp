@@ -13,7 +13,7 @@ const entry = document.getElementById("entry")
 main.hidden = true
 
 function write_message(message) {
-    p = document.createElement("p")
+    let p = document.createElement("p")
     p.innerText = message
     output.appendChild(p)
     window.scrollTo(0,document.body.scrollHeight)
@@ -25,7 +25,7 @@ connectForm.onsubmit = (e) => {
         alert("You must enter a hostname.")
         hostname.focus()
     } else {
-        soc = new WebSocket('ws://{{ host }}:{{ port }}')
+        soc = new WebSocket("ws://{{ host }}:{{ port }}")
         soc.onclose = (e) => {
             soc = null
             connectForm.hidden = false
@@ -38,7 +38,7 @@ connectForm.onsubmit = (e) => {
             soc.send(port.value)
             connectForm.hidden = true
             main.hidden = false
-            write_message('*** Connecting. ***')
+            write_message("*** Connecting. ***")
         }
     }
 }
