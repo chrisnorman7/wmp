@@ -38,7 +38,8 @@ class WebSocket(WebSocketServerProtocol):
 
     def log_message(self, message, **kwargs):
         """Log something to the logger."""
-        kwargs.update(**self.log_kwargs)
+        if hasattr(self, 'log_kwargs'):
+            kwargs.update(**self.log_kwargs)
         msg(message, **kwargs)
 
     def onMessage(self, payload, binary):
