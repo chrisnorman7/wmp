@@ -66,7 +66,7 @@ class WebSocket(WebSocketServerProtocol):
     def onClose(self, clean, code, reason):
         """Socket is closed. Close the TCP connection to."""
         self.log_message(reason, code=code)
-        if self.tcp is not None:
+        if getattr(self, 'tcp', None) is not None:
             self.tcp.transport.loseConnection()
 
     def disconnect(self, reason):
